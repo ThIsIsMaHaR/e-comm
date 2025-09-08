@@ -4,15 +4,13 @@ const bcrypt = require('bcrypt');
 const cors = require('cors');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const SECRET_KEY = 'your_super_secret_key'; // In a real app, use environment variables
 
 // --- CORS Fix ---
 // This tells the browser to allow requests from your GitHub Pages domain.
-const corsOptions = {
-    origin: 'https://thisismahar.github.io'
-};
-app.use(cors(corsOptions));
+// The next line allows all origins, which is a good default for a demo.
+app.use(cors());
 // --- End CORS Fix ---
 
 app.use(express.json());
