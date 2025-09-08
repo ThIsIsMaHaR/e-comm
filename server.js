@@ -7,8 +7,15 @@ const app = express();
 const PORT = 3000;
 const SECRET_KEY = 'your_super_secret_key'; // In a real app, use environment variables
 
+// --- CORS Fix ---
+// This tells the browser to allow requests from your GitHub Pages domain.
+const corsOptions = {
+    origin: 'https://thisismahar.github.io'
+};
+app.use(cors(corsOptions));
+// --- End CORS Fix ---
+
 app.use(express.json());
-app.use(cors());
 
 // --- Mock Database (In-memory storage) ---
 // In a production app, this would be a real database like MongoDB
